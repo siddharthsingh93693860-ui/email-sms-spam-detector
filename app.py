@@ -71,7 +71,7 @@ with open("vectorizer.pkl", "rb") as f:
 # Streamlit UI
 # --------------------------------
 
-st.title("📧 Email Spam Detector")
+st.title("📧 Email/SMS Spam Detector")
 
 st.write(
     "Enter an email or message and check whether it is Spam or Not Spam."
