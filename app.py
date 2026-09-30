@@ -110,19 +110,22 @@ if st.button("Predict"):
         # Probability
         probability = model.predict_proba(vector_input)[0]
 
+        # 75% threshold
+        not_spam_probability = probability[0]
+
         # Display result
-        if result == 1:
-
-            st.error("🚨 Spam Message")
-
-            st.write(
-                f"Spam probability: {probability[1] * 100:.2f}%"
-            )
-
-        else:
+        if not_spam_probability >= 0.75:
 
             st.success("✅ Not Spam Message")
 
             st.write(
-                f"Not Spam probability: {probability[0] * 100:.2f}%"
+                f"Not Spam probability: {not_spam_probability * 100:.2f}%"
+            )
+
+        else:
+
+            st.error("🚨 Spam Message")
+
+            st.write(
+                f"Not Spam probability: {not_spam_probability * 100:.2f}%"
             )
